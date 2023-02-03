@@ -1,0 +1,283 @@
+@import 'normalize';
+@import 'vars';
+@import 'fonts';
+@import 'mixins';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+html,
+body {
+    min-height: 100vh;
+    color: $font-color;
+    font-size: $fz;
+    font-family: 'Lato', sans-serif;
+}
+
+.body {
+    background: url('../assets/imgs/bg.png') $bg-color;
+    padding-top: 30px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    @media screen and (max-width:1200px) {
+        background: url('../assets/imgs/bg-tablet.png') $bg-color;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    @media screen and (max-width:768px) {
+        background: url('../assets/imgs/bg-phone.png') $bg-color;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+}
+
+.header,
+.main,
+.footer {
+    padding: 0 calc(50vw - $adaptive_width_content);
+
+    @media screen and (max-width: 1200px) {
+        padding: 0 22px;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 0 15px;
+    }
+}
+
+
+// **************HEADER***************//
+.header {
+    @include flex(row, space-between, center);
+    position: relative;
+    width: 100%;
+
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin-bottom: 11vw;
+
+    background: linear-gradient(270deg, rgba(22, 25, 38, 0.5) 0%, rgba(22, 25, 38, 0) 24.1%, rgba(22, 25, 38, 0) 47.19%), rgba(22, 25, 38, 0.02);
+    backdrop-filter: blur(4.5px);
+}
+
+.logo {
+    @include flex(row, flex-start, center);
+}
+
+.nav {
+
+    @include flex(row, flex-start, center);
+
+    &__list {
+        @include flex(row, flex-start, center);
+        gap: 30px;
+
+        @media screen and (max-width:768px) {
+            display: none;
+            gap: 0;
+
+            position: absolute;
+            z-index: 1;
+
+            width: 100%;
+            background-color: $bg-color;
+            bottom: -251px;
+            left: 0;
+
+            .nav__element {
+                @include flex(row, center, center);
+                //height is fixed fot accessability reasons
+                height: 42px;
+                text-align: center;
+                width: 100%;
+                border-bottom: 1px solid #FFF;
+            }
+        }
+    }
+
+    &__link {
+        @include flex(row, center, center);
+        position: relative;
+        font-size: 0.75rem;
+        line-height: 1.7;
+        letter-spacing: 0.08em;
+        width: 100%;
+        height: 100%;
+
+        &:hover {
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                bottom: -8px;
+                left: 0;
+                opacity: 0.3;
+                background: linear-gradient(96.73deg, #53F3CD 6.73%, rgba(83, 243, 205, 0) 116.9%);
+            }
+
+            @media screen and (max-width: 768px) {
+                background-color: #53f3ce28;
+
+                &::after {
+                    height: 0;
+                }
+            }
+        }
+    }
+
+    .burger {
+        position: relative;
+        display: none;
+        width: 42px;
+        height: 42px;
+
+
+        &__input {
+            opacity: 0;
+        }
+
+        &__icon {
+            @include flex(column, space-between, center);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        &__line {
+            width: 100%;
+            height: 3px;
+            background-color: #FFF;
+            // box-shadow: 1px 1px 1px 1px #53f3ce4d;
+            transition: all 0.3s ease-in-out;
+        }
+
+        &:has(.burger__input:checked) {
+            &~.nav__list {
+                @media screen and (max-width:768px) {
+                    //mediaquery added here to prevent dropdown menu styles to stay after the screen expands
+                    @include flex(column, space-between, center);
+                }
+            }
+
+            .burger__line {
+                &_top {
+                    transform: translateY(18px) rotate(45deg);
+                }
+
+                &_mid {
+                    transform: translateX(-200px);
+                    opacity: 0;
+                }
+
+                &_bot {
+                    transform: translateY(-21px) rotate(135deg);
+                }
+            }
+        }
+
+        @media screen and (max-width:768px) {
+            display: inline-block;
+        }
+    }
+}
+
+// ************MAIN********************//
+.btn {
+    border: none;
+    background-color: transparent;
+    position: relative;
+    color: $green-button;
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: 0.08em;
+    line-height: 1.1125;
+
+    cursor: pointer;
+
+    &__bg {
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        left: 11px;
+
+        transition: all 0.3s ease-in-out;
+
+        width: 100%;
+        height: calc(1em - 9px);
+        background-color: $green-button;
+        opacity: 0.3;
+    }
+
+    &:hover {
+        color: lighten($green-button, 20%);
+
+        .btn__bg {
+            transform: translate(-10%, -50%) scaleY(2.5) scaleX(1.1);
+        }
+    }
+
+    @media screen and (max-width:1200px) {
+        font-size: 1rem;
+        z-index: -1;
+    }
+
+    @media screen and (max-width:768px) {
+        font-size: 0.9rem;
+        z-index: -1;
+    }
+}
+
+.highligth {
+    font-family: 'Playfair Display Italic', serif;
+    color: $blue-highlight;
+}
+
+.first-screen {
+    max-width: 523px;
+    width: 100%;
+}
+
+.article {
+    &__title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.44rem;
+        font-weight: 400;
+        line-height: 1.18;
+        margin: 0 0 2vh 0;
+
+        @media screen and (max-width:1200px) {
+            font-size: 2rem;
+        }
+
+        @media screen and (max-width:768px) {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__text {
+        font-family: 'Lato Light', "Lato", serif;
+        width: 85%;
+        font-weight: 300;
+        line-height: 1.44;
+        color: #ffffffd8;
+        margin-bottom: 6vh;
+
+        @media screen and (max-width:1200px) {
+            font-size: 0.9rem;
+        }
+
+        @media screen and (max-width:768px) {
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+    }
+}
