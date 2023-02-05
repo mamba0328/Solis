@@ -104,16 +104,11 @@ body {
     &__link {
         @include flex(row, center, center);
         position: relative;
-
         font-size: 0.75rem;
         line-height: 1.7;
         letter-spacing: 0.08em;
-        padding-left: 10px;
-        width: 100%;
-        height: 100%;
 
         &:hover {
-
             &::after {
                 content: '';
                 position: absolute;
@@ -124,8 +119,14 @@ body {
                 opacity: 0.3;
                 background: linear-gradient(96.73deg, #53F3CD 6.73%, rgba(83, 243, 205, 0) 116.9%);
             }
+        }
 
-            @media screen and (max-width: 768px) {
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            height: 100%;
+            padding-left: 10px;
+
+            &:hover {
                 background-color: #53f3ce28;
 
                 &::after {
@@ -296,10 +297,15 @@ body {
     width: 100%;
     margin-bottom: 195px;
 
+    @media screen and (max-width:768px) {
+        backdrop-filter: blur(4.5px);
+        border-radius: 5px;
+        padding-bottom: 10px;
+    }
+
     @media screen and (max-width:1440px) {
         margin-bottom: 14vw;
     }
-
 }
 
 .article {
@@ -350,7 +356,7 @@ body {
                 background-color: $line-spring;
             }
 
-            @media screen and (max-width:420px) {
+            @media screen and (max-width:768px) {
                 &::after {
                     content: '';
                     position: absolute;
@@ -376,7 +382,7 @@ body {
                 background-color: $line-spring;
             }
 
-            @media screen and (max-width:420px) {
+            @media screen and (max-width:768px) {
                 &::after {
                     content: '';
                     position: absolute;
@@ -413,18 +419,21 @@ body {
         content: url(../assets/imgs/statistic-image.png);
         position: absolute;
         z-index: -1;
-        left: -425px;
+        left: -400px;
         top: -35px
     }
 
-    @media screen and (max-width:420px) {
-        @include flex(column, flex-end, flex-start);
+    @media screen and (max-width:768px) {
+        @include flex(column, flex-end, center);
         padding: 10px;
         gap: 25px;
         text-align: center;
+        margin-bottom: 50px;
     }
 
-    @media screen and (max-width:1000px) {
+    @media screen and (max-width:880px) {
+        margin-bottom: 100px;
+
         &::before {
             content: '';
         }
@@ -436,10 +445,11 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-template-rows: repeat(2, min-max(250px, 1fr));
     gap: 60px 30px;
+    margin-bottom: 5vh;
 
     @media screen and (max-width:520px) {
         grid-template-columns: 1fr;
-        gap: 10px 0;
+        gap: 0;
     }
 
     @media screen and (max-width:904px) {
@@ -461,6 +471,62 @@ body {
 
             .article__text {
                 margin-bottom: 15px;
+            }
+        }
+    }
+}
+
+.banner {
+    width: 100%;
+    padding: 100px 0 100px 160px;
+    background: url(../assets/imgs/banner-bg.png) no-repeat;
+    background-size: cover;
+
+    &__quoute {
+        max-width: 710px;
+        width: 100%;
+
+        font-size: 1.75rem;
+        line-height: 1.43;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+
+        margin-bottom: 40px;
+
+        position: relative;
+
+        &:after {
+            content: url(../assets/imgs/svg/quotes.svg);
+            position: absolute;
+            top: -35px;
+            left: -60px;
+        }
+    }
+
+    &__member {
+        font-family: 'Playfair Display Italic', serif;
+        font-size: 1.125rem;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0.08em;
+    }
+
+    @media screen and (max-width:1200px) {
+        padding-left: 100px;
+        padding-right: 50px;
+    }
+
+    @media screen and (max-width:756px) {
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 50px;
+
+        &__quoute {
+            &:after {
+                content: url(../assets/imgs/svg/quotes.svg);
+                position: absolute;
+                top: -60px;
+                left: -15px;
             }
         }
     }

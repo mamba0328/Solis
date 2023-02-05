@@ -4,3 +4,11 @@
     justify-content: $just;
     align-items: $align;
 }
+
+@mixin line($width, $height, $color) {
+    content: '';
+    position: absolute;
+    height: $height;
+    width: $width;
+    background-color: $color;
+}
