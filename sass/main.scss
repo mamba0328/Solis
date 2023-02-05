@@ -659,33 +659,48 @@ body {
     }
 }
 
+.player {
+    position: relative;
+
+    &__play {
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        background: url(../assets/imgs/screensave.png) no-repeat;
+        background-size: cover;
+        cursor: pointer;
+
+        &:has(.player__input:checked) {
+            z-index: 2;
+            opacity: 0;
+
+            &~.video {
+                display: inline-block;
+            }
+        }
+
+        &::before {
+            @include flex(row, center, center);
+            content: url(../assets/imgs/svg/play.svg);
+            box-sizing: border-box;
+            padding-left: 12px;
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #689ff23f;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__input {
+        opacity: 0;
+    }
+}
 
 .video {
-    width: 100%;
-    height: 100%;
-
-    @media screen and (max-width:1010px) {
-        height: 50%;
-    }
-
-    @media screen and (max-width:650px) {
-        height: 100%;
-    }
-
-    @media screen and (max-width:500px) {
-        height: 50%;
-    }
-
-    .ytp-watermark,
-    .yt-uix-sessionlink,
-    .ytp-watch-later-button,
-    .ytp-button,
-    .ytp-show-watch-later-title,
-    .ytp-chrome-top .ytp-show-cards-title {
-        display: none !important;
-    }
-
-    [data-layer="1"] {
-        display: none !important;
-    }
+    display: none;
+    min-width: 100%;
 }

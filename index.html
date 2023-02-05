@@ -130,8 +130,11 @@
       </section>
       <section class="media">
         <div class="tablet">
-          <div class="tablet__container">
-            <iframe src="https://www.youtube.com/embed/vnbN9V_2Guk?modestbranding=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="video"></iframe>
+          <div class="tablet__container player">
+            <label for="play" class="player__play">
+              <input type="checkbox" id="play" class="player__input">
+            </label>
+            <video class="video" src="./assets/video/tablet-video.mp4" muted autoplay loop></video>
           </div>
         </div>
 
