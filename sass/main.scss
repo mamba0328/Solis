@@ -257,15 +257,18 @@ body {
 
     @media screen and (max-width:768px) {
         font-size: 0.85rem;
-        margin-bottom: 20px;
     }
 }
 
 .title {
     font-family: 'Playfair Display', serif;
-    font-size: 2.44rem;
+    font-size: 2.22rem;
     font-weight: 400;
     line-height: 1.18;
+
+    &_mid {
+        font-size: 2.44rem;
+    }
 
     @media screen and (max-width:1200px) {
         font-size: 2rem;
@@ -533,6 +536,20 @@ body {
     }
 }
 
+.media {
+    max-width: 970px;
+    width: 100%;
+    margin: 0 auto;
+
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        width: 90%
+    }
+}
+
 .tablet {
     @include flex(row, flex-end, center);
     width: 970px;
@@ -542,7 +559,7 @@ body {
 
     position: relative;
 
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
     padding-right: 70px;
     padding-left: 30px;
 
