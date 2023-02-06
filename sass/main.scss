@@ -135,61 +135,61 @@ body {
             }
         }
     }
+}
 
-    .burger {
-        position: relative;
-        display: none;
-        width: 42px;
-        height: 42px;
+.burger {
+    position: relative;
+    display: none;
+    width: 42px;
+    height: 42px;
 
 
-        &__input {
-            opacity: 0;
-        }
+    &__input {
+        opacity: 0;
+    }
 
-        &__icon {
-            @include flex(column, space-between, center);
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
+    &__icon {
+        @include flex(column, space-between, center);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
 
-        &__line {
-            width: 100%;
-            height: 3px;
-            background-color: #FFF;
-            // box-shadow: 1px 1px 1px 1px #53f3ce4d;
-            transition: all 0.3s ease-in-out;
-        }
+    &__line {
+        width: 100%;
+        height: 3px;
+        background-color: #FFF;
+        // box-shadow: 1px 1px 1px 1px #53f3ce4d;
+        transition: all 0.3s ease-in-out;
+    }
 
-        &:has(.burger__input:checked) {
-            &~.nav__list {
-                @media screen and (max-width:768px) {
-                    //mediaquery added here to prevent dropdown menu styles to stay after the screen expands
-                    @include flex(column, space-between, center);
-                }
-            }
-
-            .burger__line {
-                &_top {
-                    transform: translateY(18px) rotate(45deg);
-                }
-
-                &_mid {
-                    transform: translateX(-200px);
-                    opacity: 0;
-                }
-
-                &_bot {
-                    transform: translateY(-21px) rotate(135deg);
-                }
+    &:has(.burger__input:checked) {
+        &~.nav__list {
+            @media screen and (max-width:768px) {
+                //mediaquery added here to prevent dropdown menu styles to stay after the screen expands
+                @include flex(column, space-between, center);
             }
         }
 
-        @media screen and (max-width:768px) {
-            display: inline-block;
+        .burger__line {
+            &_top {
+                transform: translateY(18px) rotate(45deg);
+            }
+
+            &_mid {
+                transform: translateX(-200px);
+                opacity: 0;
+            }
+
+            &_bot {
+                transform: translateY(-21px) rotate(135deg);
+            }
         }
+    }
+
+    @media screen and (max-width:768px) {
+        display: inline-block;
     }
 }
 
@@ -223,6 +223,11 @@ body {
         opacity: 0.3;
     }
 
+    &__text {
+        transition: all 0.3s ease-in-out;
+        position: relative;
+    }
+
     &:hover {
         color: lighten($green-button, 20%);
 
@@ -231,12 +236,30 @@ body {
         }
     }
 
+    &:focus {
+        box-shadow: none;
+    }
+
     @media screen and (max-width:1200px) {
         font-size: 1rem;
     }
 
     @media screen and (max-width:768px) {
         font-size: 0.9rem;
+    }
+
+    &_big {
+        display: grid;
+        place-content: center;
+        border: 1px solid $tablet-gray;
+        max-width: 300px;
+        width: 100%;
+        height: 90px;
+
+        &:hover {
+            background-color: #ffffff18;
+            border: 1px solid $green-button;
+        }
     }
 }
 
@@ -332,7 +355,7 @@ body {
     max-width: 770px;
     width: 100%;
     margin-left: auto;
-    margin-bottom: 165px;
+    margin-bottom: 12vw;
     position: relative;
 
     &__list {
@@ -423,7 +446,8 @@ body {
         position: absolute;
         z-index: -1;
         left: -400px;
-        top: -35px
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     @media screen and (max-width:768px) {
@@ -435,7 +459,8 @@ body {
     }
 
     @media screen and (max-width:880px) {
-        margin-bottom: 100px;
+        margin: 0 auto;
+        margin-bottom: 25px;
 
         &::before {
             content: '';
@@ -450,31 +475,37 @@ body {
     gap: 60px 30px;
     margin-bottom: 5vh;
 
-    @media screen and (max-width:520px) {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    @media screen and (max-width:904px) {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        grid-template-rows: repeat(2, min-max(250px, 1fr));
-        gap: 15px 60px;
-    }
-
     .article {
         padding: 50px 30px 0;
         border-top: 1px solid #e5e5e52f;
+    }
 
-        @media screen and (max-width:520px) {
-            padding-top: 10px;
+    @media screen and (max-width:520px) {
+        text-align: center;
+        grid-template-columns: 1fr;
+        gap: 0;
+
+        .article {
+            padding: 10px 0 0;
         }
 
-        @media screen and (max-width:904px) {
-            padding: 25px 15px 0;
+        .text {
+            width: 100%;
+        }
+    }
 
-            .article__text {
-                margin-bottom: 15px;
-            }
+    @media screen and (min-width:521px) and (max-width:904px) {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-rows: repeat(2, min-max(250px, 1fr));
+        gap: 15px 60px;
+
+        .article {
+            padding: 25px 15px 0;
+            border-top: 1px solid #e5e5e52f;
+        }
+
+        .article__text {
+            margin-bottom: 15px;
         }
     }
 }
@@ -484,7 +515,7 @@ body {
     padding: 100px 0 100px 160px;
     background: url(../assets/imgs/banner-bg.png) no-repeat;
     background-size: cover;
-    margin-bottom: 10vh;
+    margin-bottom: 10vw;
 
     &__quoute {
         max-width: 710px;
@@ -540,6 +571,7 @@ body {
     max-width: 970px;
     width: 100%;
     margin: 0 auto;
+    margin-bottom: 12vw;
 
     &__title {
         margin-bottom: 20px;
@@ -547,6 +579,14 @@ body {
 
     &__text {
         width: 90%
+    }
+
+    @media screen and (max-width:650px) {
+        text-align: center;
+
+        &__text {
+            width: 100%;
+        }
     }
 }
 
@@ -623,7 +663,7 @@ body {
         }
 
         &::after {
-            top: calc(100% - 43px);
+            top: calc(100% - 50px);
             bottom: 0;
             left: 48%;
             transform: translate(0, 0);
@@ -720,4 +760,104 @@ body {
 .video {
     display: none;
     min-width: 100%;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 70px 100px;
+
+    max-width: 770px;
+    width: 100%;
+    margin-left: auto;
+    margin-bottom: 5vh;
+    padding: 75px 0 75px 70px;
+    overflow-x: none;
+
+    background: #161926e6;
+    position: relative;
+
+    &::before {
+        content: url(../assets/imgs/benefits-bg.png);
+        position: absolute;
+        z-index: -1;
+        left: -400px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @media screen and (max-width:650px) {
+        justify-items: center;
+        grid-template-columns: 1fr;
+        row-gap: 0;
+        padding: 0;
+        text-align: center;
+
+        &::before {
+            content: ' ';
+        }
+    }
+
+    @media screen and (min-width:651px) and (max-width:840px) {
+        &::before {
+            content: url(../assets/imgs/benefits-bg.png);
+            position: absolute;
+            z-index: -1;
+            left: -75px;
+        }
+    }
+}
+
+.feature {
+    &__title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 2;
+        margin-bottom: 15px;
+    }
+
+    &__desc {
+        font-family: 'Lato Light';
+        font-weight: 300;
+        opacity: 0.8;
+        line-height: 1.44;
+
+        &:not(:last-of-type) {
+            margin-bottom: 15px;
+        }
+    }
+
+    @media screen and (max-width:650px) {
+        &:not(:last-of-type) {
+            border-bottom: 2px solid #53f3ce36;
+            ;
+        }
+
+        padding: 15px 0;
+        max-width: 300px;
+        width: 100%;
+    }
+
+    @media screen and (max-width:768px) {
+
+        &__title {
+            font-size: 1rem;
+        }
+
+        &__desc {
+            font-size: 0.8rem;
+        }
+    }
+
+    @media screen and (max-width:1200px) {
+
+        &__title {
+            font-size: 1.2rem;
+        }
+
+        &__desc {
+            font-size: 0.9rem;
+        }
+    }
 }
