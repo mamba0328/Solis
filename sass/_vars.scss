@@ -20,9 +20,10 @@ $tablet-gray: #515773;
     --input-border: #ffffff1a;
     --hover: #53F3CD;
     --text-color: #ffffffcc;
-    --bg-pic: url('../assets/imgs/bg.png');
-    --bg-pic_tab: url('../assets/imgs/bg-tablet.png');
-    --bg-pic_mob: url('../assets/imgs/bg-phone.png');
+
+    --bg-pic: url('../assets/imgs/bg.webp');
+    --bg-pic_tab: url('../assets/imgs/bg-tablet.webp');
+    --bg-pic_mob: url('../assets/imgs/bg-phone.webp');
     --quotes: url('../assets/imgs/svg/quotes.svg');
 }
 
@@ -39,11 +40,13 @@ $tablet-gray: #515773;
     --hover: #F1897B;
     --text-color: #262a3f;
 
-    --bg-pic: url('../assets/imgs/bg_white.png');
-    --bg-pic_tab: url('../assets/imgs/bg-table_whitet.png');
-    --bg-pic_mob: url('../assets/imgs/bg-phone_white.png');
+    --bg-pic: url('../assets/imgs/bg_white.webp');
+    --bg-pic_tab: url('../assets/imgs/bg-tablet_white.webp');
+    --bg-pic_mob: url('../assets/imgs/bg-phone_white.webp');
     --quotes: url('../assets/imgs/svg/quotes_white.svg');
 }
+
+
 
 $width_content: 1187px;
 $adaptive_width_content: calc($width_content / 2);

@@ -361,9 +361,9 @@ li {
   --input-border: #ffffff1a;
   --hover: #53F3CD;
   --text-color: #ffffffcc;
-  --bg-pic: url("../assets/imgs/bg.png");
-  --bg-pic_tab: url("../assets/imgs/bg-tablet.png");
-  --bg-pic_mob: url("../assets/imgs/bg-phone.png");
+  --bg-pic: url("../assets/imgs/bg.webp");
+  --bg-pic_tab: url("../assets/imgs/bg-tablet.webp");
+  --bg-pic_mob: url("../assets/imgs/bg-phone.webp");
   --quotes: url("../assets/imgs/svg/quotes.svg");
 }
 
@@ -379,9 +379,9 @@ li {
   --input-border: #262a3f1a;
   --hover: #F1897B;
   --text-color: #262a3f;
-  --bg-pic: url("../assets/imgs/bg_white.png");
-  --bg-pic_tab: url("../assets/imgs/bg-table_whitet.png");
-  --bg-pic_mob: url("../assets/imgs/bg-phone_white.png");
+  --bg-pic: url("../assets/imgs/bg_white.webp");
+  --bg-pic_tab: url("../assets/imgs/bg-tablet_white.webp");
+  --bg-pic_mob: url("../assets/imgs/bg-phone_white.webp");
   --quotes: url("../assets/imgs/svg/quotes_white.svg");
 }
 
@@ -894,7 +894,7 @@ body {
   margin-bottom: 50px;
 }
 .info-card::before {
-  content: url(../assets/imgs/info-card.png);
+  content: url(../assets/imgs/info-card.webp);
   position: absolute;
   z-index: -1;
   left: -400px;
@@ -967,7 +967,7 @@ body {
   width: 100%;
   color: #ffffff;
   padding: 100px 0 100px 160px;
-  background: url(../assets/imgs/banner-bg.png) no-repeat;
+  background: url(../assets/imgs/banner-bg.webp) no-repeat;
   background-size: cover;
   margin-bottom: 8vw;
 }
@@ -1234,7 +1234,7 @@ body {
   position: relative;
 }
 .features::before {
-  content: url(../assets/imgs/benefits-bg.png);
+  content: url(../assets/imgs/benefits-bg.webp);
   position: absolute;
   z-index: -1;
   left: -400px;
@@ -1256,7 +1256,7 @@ body {
 }
 @media screen and (min-width: 651px) and (max-width: 840px) {
   .features::before {
-    content: url(../assets/imgs/benefits-bg.png);
+    content: url(../assets/imgs/benefits-bg.webp);
     position: absolute;
     z-index: -1;
     left: -75px;
@@ -1462,6 +1462,7 @@ body {
 @media screen and (max-width: 883px) {
   .form {
     max-width: 470px;
+    align-items: center;
   }
 }
 
