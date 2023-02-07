@@ -9,29 +9,28 @@
     margin: 0;
 }
 
-
 html,
 body {
     min-height: 100vh;
-    color: $font-color;
+    color: var(--font-color);
     font-size: $fz;
     font-family: 'Lato', sans-serif;
 }
 
 .body {
-    background: url('../assets/imgs/bg.png') $bg-color;
+    background: var(--bg-pic) var(--bg-color);
     padding-top: 30px;
     background-repeat: no-repeat;
     background-size: 100%;
 
     @media screen and (max-width:1200px) {
-        background: url('../assets/imgs/bg-tablet.png') $bg-color;
+        background: var(--bg-pic_tab) var(--bg-color);
         background-repeat: no-repeat;
         background-size: 100%;
     }
 
     @media screen and (max-width:768px) {
-        background: url('../assets/imgs/bg-phone.png') $bg-color;
+        background: var(--bg-pic_mob) var(--bg-color);
         background-repeat: no-repeat;
         background-size: 100%;
     }
@@ -54,7 +53,7 @@ body {
 
 // **************HEADER***************//
 .header {
-    @include flex(row, space-between, center);
+    @include flex(row, flex-start, center);
     position: relative;
     z-index: 1;
 
@@ -71,6 +70,52 @@ body {
     @include flex(row, flex-start, center);
 }
 
+.theme {
+    @include flex(row, flex-start, center);
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.toggler {
+    @include flex(row, center, center);
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border: 5px solid var(--bg-color);
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &__black {
+        position: absolute;
+        min-width: 50%;
+        height: 100%;
+        background-color: $bg-color;
+        z-index: 1;
+        left: 0;
+    }
+
+    &__white {
+        position: absolute;
+        min-width: 50%;
+        height: 100%;
+        background-color: #FFF;
+        z-index: 1;
+        right: 0;
+    }
+
+    &__input {
+        opacity: 0;
+    }
+
+    &:has(.toggler__input:checked) {
+        transform: rotate(180deg) scale(0.8);
+    }
+
+    transform: scale(0.8);
+}
+
 .nav {
 
     @include flex(row, flex-start, center);
@@ -85,7 +130,7 @@ body {
 
             position: absolute;
             width: 100%;
-            background-color: $bg-color;
+            background-color: var(--bg-color);
             bottom: -251px;
             right: 0;
 
@@ -104,7 +149,7 @@ body {
     &__link {
         @include flex(row, center, center);
         position: relative;
-        font-size: 0.75rem;
+        font-size: 0.9rem;
         line-height: 1.7;
         letter-spacing: 0.08em;
 
@@ -117,7 +162,7 @@ body {
                 bottom: -8px;
                 left: 0;
                 opacity: 0.3;
-                background: linear-gradient(96.73deg, #53F3CD 6.73%, rgba(83, 243, 205, 0) 116.9%);
+                background: linear-gradient(96.73deg, var(--hover) 6.73%, rgba(83, 243, 205, 0) 116.9%);
             }
         }
 
@@ -155,13 +200,13 @@ body {
         height: 100%;
         cursor: pointer;
         transform: scale(0.8);
+        overflow: hidden;
     }
 
     &__line {
         width: 100%;
         height: 3px;
-        background-color: #FFF;
-        // box-shadow: 1px 1px 1px 1px #53f3ce4d;
+        background-color: var(--font-color);
         transition: all 0.3s ease-in-out;
     }
 
@@ -203,7 +248,7 @@ body {
     position: relative;
     z-index: 0;
 
-    color: $green-button;
+    color: var(--button);
     font-weight: 700;
     font-size: 1.125rem;
     letter-spacing: 0.08em;
@@ -221,7 +266,7 @@ body {
 
         width: 100%;
         height: calc(1em - 9px);
-        background-color: $green-button;
+        background-color: var(--button);
         opacity: 0.3;
     }
 
@@ -231,7 +276,7 @@ body {
     }
 
     &:hover {
-        color: lighten($green-button, 20%);
+        color: var(--light-btn);
 
         .btn__bg {
             transform: translate(-7%, -50%) scaleY(2.5) scaleX(1.1);
@@ -253,28 +298,28 @@ body {
     &_big {
         display: grid;
         place-content: center;
-        border: 1px solid $tablet-gray;
+        border: 1px solid var(--tablet-gray);
         max-width: 300px;
         width: 100%;
         height: 90px;
 
         &:hover {
             background-color: #ffffff18;
-            border: 1px solid $green-button;
+            border: 1px solid var(--button);
         }
     }
 }
 
 .highligth {
     font-family: 'Playfair Display Italic', serif;
-    color: $blue-highlight;
+    color: var(--highlight);
 }
 
 .text {
     font-family: 'Lato Light', "Lato", serif;
     font-weight: 300;
     line-height: 1.44;
-    color: #ffffffcc;
+    color: var(--text-color);
 
     @media screen and (max-width:1200px) {
         font-size: 0.9rem;
@@ -337,8 +382,6 @@ body {
 }
 
 .article {
-
-
     &__title {
         margin: 0 0 2vh 0;
     }
@@ -351,7 +394,7 @@ body {
 
 .info-card {
     @include flex(row, flex-end, flex-start);
-    background: #161926e6;
+    background: var(--blocks-bg);
 
     padding: 45px 0;
     max-width: 770px;
@@ -479,7 +522,7 @@ body {
 
     .article {
         padding: 50px 30px 0;
-        border-top: 1px solid $border-gray;
+        border-top: 1px solid var(--border-gray);
     }
 
     @media screen and (max-width:650px) {
@@ -503,7 +546,7 @@ body {
 
         .article {
             padding: 25px 15px 0;
-            border-top: 1px solid #e5e5e52f;
+            border-top: 1px solid var(--border-gray);
         }
 
         .article__text {
@@ -514,6 +557,7 @@ body {
 
 .banner {
     width: 100%;
+    color: $font-color;
     padding: 100px 0 100px 160px;
     background: url(../assets/imgs/banner-bg.png) no-repeat;
     background-size: cover;
@@ -533,7 +577,7 @@ body {
         position: relative;
 
         &:after {
-            content: url(../assets/imgs/svg/quotes.svg);
+            content: var(--quotes);
             position: absolute;
             top: -35px;
             left: -60px;
@@ -560,7 +604,7 @@ body {
 
         &__quoute {
             &:after {
-                content: url(../assets/imgs/svg/quotes.svg);
+                content: var(--quotes);
                 position: absolute;
                 top: -60px;
                 left: -15px;
@@ -596,7 +640,7 @@ body {
     @include flex(row, flex-end, center);
     width: 970px;
     height: 600px;
-    border: 1px solid $tablet-gray;
+    border: 1px solid var(--tablet-gray);
     border-radius: 32px;
 
     position: relative;
@@ -633,7 +677,7 @@ body {
         position: absolute;
         width: 13px;
         height: 13px;
-        border: 1px solid $tablet-gray;
+        border: 1px solid var(--tablet-gray);
         border-radius: 50%;
         top: 50%;
         left: 8px;
@@ -645,7 +689,7 @@ body {
         position: absolute;
         width: 35px;
         height: 35px;
-        border: 1px solid $tablet-gray;
+        border: 1px solid var(--tablet-gray);
         border-radius: 50%;
         top: 50%;
         right: 14px;
@@ -780,7 +824,7 @@ body {
     margin-left: auto;
     margin-bottom: 12vw;
     padding: 75px 0 75px 70px;
-    background: #161926e6;
+    background: var(--blocks-bg);
     position: relative;
 
     &::before {
@@ -896,6 +940,7 @@ body {
     width: 370px;
     height: 340px;
     padding: 30px 40px;
+    color: #FFF;
 
     &__content {
         font-size: 0.9rem;
@@ -938,8 +983,8 @@ body {
     flex-wrap: wrap;
     padding-top: 3vw;
     padding-bottom: 6vw;
-    border-top: 1px solid $border-gray;
-    border-bottom: 1px solid $border-gray;
+    border-top: 1px solid var(--border-gray);
+    border-bottom: 1px solid var(--border-gray);
 
 
     &__desc {
@@ -970,7 +1015,7 @@ body {
         width: 100%;
         background-color: transparent;
         border: none;
-        border-bottom: 1px solid #ffffff1a;
+        border-bottom: 1px solid var(--input-border);
         padding-bottom: 12px;
 
         &::placeholder {
@@ -994,9 +1039,9 @@ body {
     select:-webkit-autofill,
     select:-webkit-autofill:hover,
     select:-webkit-autofill:focus {
-        border-bottom: 1px solid #ffffff1a;
+        border-bottom: 1px solid var(--input-border);
         -webkit-text-fill-color: #ffffffc0;
-        -webkit-box-shadow: 0 0 0px 1000px $bg-color inset;
+        -webkit-box-shadow: 0 0 0px 1000px var(--bg-color) inset;
         transition: background-color 5000s ease-in-out 0s;
     }
 

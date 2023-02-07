@@ -1,11 +1,49 @@
 $fz: 18px;
-$font-color: #FFF;
+$font-color: #ffffff;
 $bg-color: #161926;
 $blue-highlight: #689FF2;
 $green-button: #53F3CD;
 $line-spring: #85BBB1;
-$tablet-gray: #515773;
 $border-gray: #e5e5e52f;
+$tablet-gray: #515773;
+
+
+:root {
+    --font-color: #ffffff;
+    --bg-color: #161926;
+    --highlight: #689FF2;
+    --button: #53F3CD;
+    --light-btn: lighten(#53F3CD, 20%);
+    --border-gray: #e5e5e52f;
+    --tablet-gray: #515773;
+    --blocks-bg: #161926;
+    --input-border: #ffffff1a;
+    --hover: #53F3CD;
+    --text-color: #ffffffcc;
+    --bg-pic: url('../assets/imgs/bg.png');
+    --bg-pic_tab: url('../assets/imgs/bg-tablet.png');
+    --bg-pic_mob: url('../assets/imgs/bg-phone.png');
+    --quotes: url('../assets/imgs/svg/quotes.svg');
+}
+
+:root:has(#white:checked) {
+    --font-color: #262A3F;
+    --bg-color: #FFF;
+    --highlight: #85BBB1;
+    --button: #F1897B;
+    --light-btn: lighten(#F1897B, 20%);
+    --blocks-bg: #ffffffe6;
+    --border-gray: #E4E4E4;
+    --tablet-gray: #e4e4e4;
+    --input-border: #262a3f1a;
+    --hover: #F1897B;
+    --text-color: #262a3f;
+
+    --bg-pic: url('../assets/imgs/bg_white.png');
+    --bg-pic_tab: url('../assets/imgs/bg-table_whitet.png');
+    --bg-pic_mob: url('../assets/imgs/bg-phone_white.png');
+    --quotes: url('../assets/imgs/svg/quotes_white.svg');
+}
 
 $width_content: 1187px;
 $adaptive_width_content: calc($width_content / 2);
