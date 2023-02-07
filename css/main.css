@@ -1291,7 +1291,9 @@ body {
   align-items: flex-start;
   flex-wrap: wrap;
   padding-top: 3vw;
-  border-top: 1px solid #515773;
+  padding-bottom: 6vw;
+  border-top: 1px solid rgba(229, 229, 229, 0.1843137255);
+  border-bottom: 1px solid rgba(229, 229, 229, 0.1843137255);
 }
 .contact-us__desc {
   max-width: 470px;
@@ -1373,4 +1375,41 @@ body {
   .form {
     max-width: 470px;
   }
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 0.8rem;
+  line-height: 1.71;
+}
+@media screen and (max-width: 670px) {
+  .footer {
+    flex-direction: column;
+    gap: 2vw;
+  }
+}
+
+.copyrights {
+  opacity: 0.6;
+  font-weight: 300;
+}
+
+.made-by__prefix {
+  opacity: 0.6;
+  font-weight: 300;
+  margin-right: 10px;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2vw;
 }
