@@ -1011,7 +1011,7 @@ body {
     gap: 3vw;
 
     &__input {
-        color: #ffffffc0;
+        color: var(--input-color);
         width: 100%;
         background-color: transparent;
         border: none;
@@ -1040,7 +1040,7 @@ body {
     select:-webkit-autofill:hover,
     select:-webkit-autofill:focus {
         border-bottom: 1px solid var(--input-border);
-        -webkit-text-fill-color: #ffffffc0;
+        -webkit-text-fill-color: var(--input-color);
         -webkit-box-shadow: 0 0 0px 1000px var(--bg-color) inset;
         transition: background-color 5000s ease-in-out 0s;
     }

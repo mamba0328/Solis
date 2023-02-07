@@ -361,6 +361,7 @@ li {
   --input-border: #ffffff1a;
   --hover: #53F3CD;
   --text-color: #ffffffcc;
+  --input-color: #ffffffc0;
   --bg-pic: url("../assets/imgs/bg.webp");
   --bg-pic_tab: url("../assets/imgs/bg-tablet.webp");
   --bg-pic_mob: url("../assets/imgs/bg-phone.webp");
@@ -379,6 +380,7 @@ li {
   --input-border: #262a3f1a;
   --hover: #F1897B;
   --text-color: #262a3f;
+  --input-color: #262A3F;
   --bg-pic: url("../assets/imgs/bg_white.webp");
   --bg-pic_tab: url("../assets/imgs/bg-tablet_white.webp");
   --bg-pic_mob: url("../assets/imgs/bg-phone_white.webp");
@@ -1409,7 +1411,7 @@ body {
   gap: 3vw;
 }
 .form__input {
-  color: rgba(255, 255, 255, 0.7529411765);
+  color: var(--input-color);
   width: 100%;
   background-color: transparent;
   border: none;
@@ -1454,7 +1456,7 @@ body {
 .form select:-webkit-autofill:hover,
 .form select:-webkit-autofill:focus {
   border-bottom: 1px solid var(--input-border);
-  -webkit-text-fill-color: rgba(255, 255, 255, 0.7529411765);
+  -webkit-text-fill-color: var(--input-color);
   -webkit-box-shadow: 0 0 0px 1000px var(--bg-color) inset;
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
