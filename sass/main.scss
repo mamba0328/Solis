@@ -34,6 +34,9 @@ body {
         background-repeat: no-repeat;
         background-size: 100%;
     }
+
+    //only because of animation
+    overflow-x: hidden;
 }
 
 .header,
@@ -63,6 +66,7 @@ body {
     margin-bottom: 11vw;
 
     background: linear-gradient(270deg, rgba(22, 25, 38, 0.5) 0%, rgba(22, 25, 38, 0) 24.1%, rgba(22, 25, 38, 0) 47.19%), rgba(22, 25, 38, 0.02);
+    -webkit-backdrop-filter: blur(4.5px);
     backdrop-filter: blur(4.5px);
 }
 
@@ -127,7 +131,6 @@ body {
         @media screen and (max-width:768px) {
             display: none;
             gap: 0;
-
             position: absolute;
             width: 100%;
             background-color: var(--bg-color);
@@ -136,12 +139,17 @@ body {
 
             .nav__element {
                 @include flex(row, center, center);
-                //height is fixed fot accessability reasons
                 position: relative;
                 height: 42px;
                 text-align: center;
                 width: 100%;
-                border-bottom: 1px solid #FFF;
+                border-bottom: 1px solid var(--font-color);
+
+                @for $i from 1 through 6 {
+                    &:nth-of-type(#{$i}) {
+                        animation: slide-left calc(250ms + calc(50ms * $i)) 1;
+                    }
+                }
             }
         }
     }
@@ -172,13 +180,36 @@ body {
             padding-left: 10px;
 
             &:hover {
-                background-color: #53f3ce28;
+                background: linear-gradient(96.73deg, var(--hover) 6.73%, rgba(83, 243, 205, 0) 116.9%);
 
                 &::after {
                     height: 0;
                 }
             }
         }
+    }
+}
+
+@keyframes slide-left {
+    from {
+        overflow: hidden;
+        transform: translateX(50%)
+    }
+
+    to {
+        overflow: hidden;
+        transform: translateX(0)
+    }
+}
+
+@keyframes hide-overflow {
+
+    from {
+        overflow-x: visible;
+    }
+
+    to {
+        overflow-x: hidden;
     }
 }
 
@@ -213,7 +244,6 @@ body {
     &:has(.burger__input:checked) {
         &~.nav__list {
             @media screen and (max-width:768px) {
-                //mediaquery added here to prevent dropdown menu styles to stay after the screen expands
                 @include flex(column, space-between, center);
             }
         }
@@ -371,6 +401,7 @@ body {
     margin-bottom: 195px;
 
     @media screen and (max-width:768px) {
+        -webkit-backdrop-filter: blur(4.5px);
         backdrop-filter: blur(4.5px);
         border-radius: 5px;
         padding-bottom: 10px;
@@ -518,7 +549,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-template-rows: repeat(2, min-max(250px, 1fr));
     gap: 60px 30px;
-    margin-bottom: 5vh;
+    margin-bottom: 8vw;
 
     .article {
         padding: 50px 30px 0;
@@ -715,7 +746,7 @@ body {
         }
     }
 
-    @media screen and(min-width: 501px) and (max-width:650px) {
+    @media screen and (min-width: 501px) and (max-width:650px) {
         width: 432px;
         height: 270px;
         padding-top: 16px;
@@ -974,6 +1005,8 @@ body {
     @media screen and (max-width:1200px) {
         width: 100%;
         gap: 25px;
+        height: -webkit-max-content;
+        height: -moz-max-content;
         height: max-content;
     }
 }
@@ -1018,6 +1051,30 @@ body {
         border-bottom: 1px solid var(--input-border);
         padding-bottom: 12px;
 
+        &::-webkit-input-placeholder {
+            font-family: 'Playfair Display Italic';
+            line-height: 1.1;
+            opacity: 0.5;
+        }
+
+        &::-moz-placeholder {
+            font-family: 'Playfair Display Italic';
+            line-height: 1.1;
+            opacity: 0.5;
+        }
+
+        &:-ms-input-placeholder {
+            font-family: 'Playfair Display Italic';
+            line-height: 1.1;
+            opacity: 0.5;
+        }
+
+        &::-ms-input-placeholder {
+            font-family: 'Playfair Display Italic';
+            line-height: 1.1;
+            opacity: 0.5;
+        }
+
         &::placeholder {
             font-family: 'Playfair Display Italic';
             line-height: 1.1;
@@ -1042,6 +1099,7 @@ body {
         border-bottom: 1px solid var(--input-border);
         -webkit-text-fill-color: var(--input-color);
         -webkit-box-shadow: 0 0 0px 1000px var(--bg-color) inset;
+        -webkit-transition: background-color 5000s ease-in-out 0s;
         transition: background-color 5000s ease-in-out 0s;
     }
 
