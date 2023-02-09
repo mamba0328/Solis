@@ -411,6 +411,30 @@ li {
   font-family: "Playfair Display Italic";
   src: url(../assets/fonts/PlayfairDisplay-Italic.woff) format("woff"), url(../assets/fonts/PlayfairDisplay-Italic.ttf) format("truetype");
 }
+@-webkit-keyframes slide-left {
+  from {
+    overflow: hidden;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  to {
+    overflow: hidden;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@keyframes slide-left {
+  from {
+    overflow: hidden;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+  }
+  to {
+    overflow: hidden;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -632,47 +656,6 @@ body {
   }
 }
 
-@-webkit-keyframes slide-left {
-  from {
-    overflow: hidden;
-    -webkit-transform: translateX(50%);
-            transform: translateX(50%);
-  }
-  to {
-    overflow: hidden;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@keyframes slide-left {
-  from {
-    overflow: hidden;
-    -webkit-transform: translateX(50%);
-            transform: translateX(50%);
-  }
-  to {
-    overflow: hidden;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-@-webkit-keyframes hide-overflow {
-  from {
-    overflow-x: visible;
-  }
-  to {
-    overflow-x: hidden;
-  }
-}
-@keyframes hide-overflow {
-  from {
-    overflow-x: visible;
-  }
-  to {
-    overflow-x: hidden;
-  }
-}
 .burger {
   position: relative;
   display: none;

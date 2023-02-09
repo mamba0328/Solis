@@ -1,6 +1,7 @@
 @import 'normalize';
 @import 'vars';
 @import 'fonts';
+@import 'keyframes';
 @import 'mixins';
 
 * {
@@ -121,7 +122,6 @@ body {
 }
 
 .nav {
-
     @include flex(row, flex-start, center);
 
     &__list {
@@ -187,29 +187,6 @@ body {
                 }
             }
         }
-    }
-}
-
-@keyframes slide-left {
-    from {
-        overflow: hidden;
-        transform: translateX(50%)
-    }
-
-    to {
-        overflow: hidden;
-        transform: translateX(0)
-    }
-}
-
-@keyframes hide-overflow {
-
-    from {
-        overflow-x: visible;
-    }
-
-    to {
-        overflow-x: hidden;
     }
 }
 
