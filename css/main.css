@@ -507,7 +507,7 @@ body {
   backdrop-filter: blur(4.5px);
 }
 
-.logo {
+.logo__link {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -574,7 +574,7 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 30px;
+  gap: 1.8vw;
 }
 @media screen and (max-width: 768px) {
   .nav__list {
